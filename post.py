@@ -4,14 +4,14 @@ url = "http://127.0.0.1:5000/ListItem"
 
 # Product information
 data = {
-    "title": "BMW",
-    "price": 200000.99,
-    "description": "Verkaufe hier mein alten BMW",
-    "location": "Büren",
+    "title": "auto mit leicht gebrauchsspuren",
+    "price": 1.99,
+    "description": "Verkaufe hier mein auto mit leichten gebrauchs spuren",
+    "location": "Bielefeld",
 }
 
 # Load the image file
-files = {'image': open('OIP.jpg', 'rb')}
+files = {'image': open('auto.jpg', 'rb')}
 
 # Send the POST request
 response = requests.post(url, data=data, files=files)
