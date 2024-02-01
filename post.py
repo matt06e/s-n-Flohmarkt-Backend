@@ -1,21 +1,21 @@
 import requests
 
-url = "http://127.0.0.1:5000/ListItem"
+# URL für die Kommentar-POST-Anfrage
+url = 'http://localhost:5000/comments'
 
-# Product information
-data = {
-    "title": "auto mit leicht gebrauchsspuren",
-    "price": 1.99,
-    "description": "Verkaufe hier mein auto mit leichten gebrauchs spuren",
-    "location": "Bielefeld",
+# Testdaten für den Kommentar
+comment_data = {
+    'item_id': 7,  # Ersetze dies durch die tatsächliche item_id, für die du einen Kommentar hinzufügen möchtest
+    'acount_id': 123,  # Ersetze dies durch die tatsächliche account_id des Benutzers
+    'comment': 'Hallo'  # Ersetze dies durch den tatsächlichen Kommentartext
 }
 
-# Load the image file
-files = {'image': open('auto.jpg', 'rb')}
+# Führe die POST-Anfrage durch
+response = requests.post(url, json=comment_data)
 
-# Send the POST request
-response = requests.post(url, data=data, files=files)
-
-# Print the response
-print(response.status_code)
-print(response.json())
+# Überprüfe die Antwort
+if response.status_code == 201:
+    print('Kommentar erfolgreich hinzugefügt!')
+else:
+    print(f'Fehler beim Hinzufügen des Kommentars. Statuscode: {response.status_code}')
+    print(response.json())
